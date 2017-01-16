@@ -1,0 +1,16 @@
+﻿@model UnitTestingMockUps.Models.Entity.CategoryModel
+
+@{
+    ViewBag.Title = "Edit - " + Model.Name;
+}
+
+<h2>Edit of Category</h2>
+
+@using (Html.BeginForm())
+
+{
+    @Html.AntiForgeryToken()
+
+    @Html.Partial("_CategoryForm")
+    @Html.Partial("_SubmitForm")
+}

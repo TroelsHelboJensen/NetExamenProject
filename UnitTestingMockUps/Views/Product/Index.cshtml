@@ -1,0 +1,69 @@
+﻿@model IEnumerable<UnitTestingMockUps.Models.Entity.ProductModel>
+
+@{
+    ViewBag.Title = "Product Index";
+}
+
+<h2>Products</h2>
+<div class="container">
+    
+    @using (Html.BeginForm())
+    {
+        <div class="form-inline" style="width:50%;margin: 0 auto;margin-top: 10px;">
+            <input type="text" name="str" id="str" class="form-control" placeholder="Search..." />
+            <input type="submit" class="btn btn-primary" value="Search for Products..." />
+        </div>
+    }
+        
+    <!-- Inside authentication -->
+    @if (Context.User.Identity.IsAuthenticated)
+    {
+        <p>
+            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" } )
+        </p>
+    }
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Instruction)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Instruction)
+                </td>
+                <td>
+                    @if (Context.User.Identity.IsAuthenticated)
+                    {
+                        Html.ActionLink("Edit", "Edit", new { id = item.ProductModelId }, new { @class = "btn btn-primary" }); 
+                        Html.ActionLink("Delete", "Delete", new { id = item.ProductModelId }, new { @class = "btn btn-warning" });
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

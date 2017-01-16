@@ -1,0 +1,52 @@
+﻿@model UnitTestingMockUps.Models.Entity.ProgressModel
+
+@{
+    ViewBag.Title = "Progress";
+    var taskList = Model.Tasks.ToList();
+}
+
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th><h2>@Model.Name</h2></th>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(p => p.Process)
+                @Html.DisplayFor(p => p.Process)
+            </th>
+            <th>@Html.DisplayName("Tasks");
+        </tr>
+        <tr>
+            <th> @Html.DisplayNameFor(t => t.Task.TaskModelId) </th>
+            <th> @Html.DisplayNameFor(t => t.Task.Name) </th>
+            <th> @Html.DisplayNameFor(t => t.Task.Procent) </th>
+            <th> @Html.DisplayNameFor(t => t.Task.TaskDone) </th>
+        </tr>
+
+        @foreach (var item in taskList)
+        {
+            string colorRow = "";
+            
+            if (item.TaskDone)
+            {
+                colorRow = "success";
+
+            }
+            else
+            {
+                colorRow = "danger";
+            }
+
+            <tr class="@colorRow">
+                <td>@Html.DisplayFor(taskId => item.TaskModelId) </td>
+                <td>@Html.DisplayFor(taskName => item.Name) </td>
+                <td>@Html.DisplayFor(taskWeight => item.Procent) </td>
+                <td>@Html.DisplayFor(taskProctess => item.TaskDone) </td>
+                
+                <td>@Html.ActionLink("Change Progress", "EditTask", new { id = item.TaskModelId } )</td>
+            </tr>
+        }
+
+    </table>
+</div>

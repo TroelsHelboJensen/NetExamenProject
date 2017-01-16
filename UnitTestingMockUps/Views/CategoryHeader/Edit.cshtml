@@ -1,0 +1,20 @@
+﻿@model UnitTestingMockUps.Models.Entity.CategoryHeaderModel
+@{
+    ViewBag.Title = "Create - " + Model.Name;
+}
+
+<h2>Edit of Category Header</h2>
+
+@using (Html.BeginForm())
+
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.HiddenFor(ch => ch.CategoryHeaderModelId)
+        @Html.Partial("_CategoryHeaderForm")
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 category-buttons">
+            @Html.Partial("_SubmitForm")
+    </div>
+}

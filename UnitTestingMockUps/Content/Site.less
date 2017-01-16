@@ -1,0 +1,83 @@
+﻿@button-edit: lightyellow;
+@button-delete: lightcoral;
+@button-font-color: color: black;
+
+.btn {
+    color: black;
+    .btn-delete {
+        background-color: @button-delete;
+    }
+    .btn-create {
+        background-color: lightgreen;
+    }
+    btn-edit {
+        background-color: @button-edit;
+    }
+}
+
+.category-border {
+    border: 1px solid #0777f1;
+}
+.category-id {
+    font-weight: bold;
+    font-size: 15px;
+}
+.left {
+    float:left;
+}
+.right {
+    float: right;
+}
+
+.category-buttons {
+    padding-left: 0px;
+}
+
+.form-horizontal .form-group {
+    margin-left: 0px;
+}
+
+.clear-float {
+    clear: both;
+}
+.category {
+
+}
+.category-header {
+    padding-left: 2%; 
+}
+.category-create-link {
+    padding-top: 1%;
+}
+
+.line-split-horizotal {
+    min-height: 10px;
+    max-height: 50px;
+}
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Part of the prebuild css (MVC Framework */
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}

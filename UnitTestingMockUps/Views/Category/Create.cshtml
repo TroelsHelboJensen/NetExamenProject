@@ -1,0 +1,14 @@
+﻿@model UnitTestingMockUps.Models.Entity.CategoryModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Category</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.Partial("_CategoryForm")
+    @Html.Partial("_SubmitForm")
+}
